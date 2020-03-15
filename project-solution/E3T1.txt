@@ -1,0 +1,8 @@
+# Describe GuardDuty findings that were detected related to the brute force attack
+GuardDuty has detected that an attacker is using brute forse attack on SSH port. 
+This attack is defined as high severity. Also, findings include information regarding the 
+attacked host, attacker host, and number of attacks. Finally it has local IP address of attacker and victom instances.
+
+# Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+Based on the GuardDuty documentation, this service uses CloudTrail event logs, VPC Flow Logs and DNS logs to detect an attack. It uses ML techniques to detect an attack. For the attack performed in this exercise, AWS might have used VPC Flow logs to detect this attact as API calls were not used. Similarly, the attack was performed inside VPC so DNS logs are probably not used. It should be noted that DNS logs would be helpful source of information if the attack was inititated from outside of AWS.
+

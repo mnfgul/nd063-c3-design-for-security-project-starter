@@ -1,0 +1,19 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+Cloudformation templates can be scanned with 3rd party tools to identify security vulnerabilities and complaince issues. An example tool is CloudSploit which can be used for this purpose.
+
+### Example vulnerability
+An example vulnerability is unencrypted data storage. Data stored in S3 buckets or EBS storage can be identified as security vulnerability.
+
+##Scan AMI’s or containers for OS vulnerabilities
+AMI or container vulnerabilities can be scanned by AWS Inspector and this can integrated to CI/CD process using Lambda and SNS. Alternatively, there are 3rd part services such as Qualys that can be used to scan AMI and OS images automatically and notify DevOps.
+
+### Example vulnerability
+An example vulnerability would be outdated OS version. Another example would be saving API key and secrets in AMI instead of using IAM roles.
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+AWS Config along with System Manager could be used to detect configuration vulnerabilities. Alternatively, 3rd party services such as Allien Vault and Qualys can be used for this similar purposes.
+
+### Example vulnerability
+An example vulnerability for cloud configuration would be using root account for API calls. Furthermore, poor password policy, not enabling MFA for users, and unnecessary user permissions are some common user account related configuration vulnerabilities. 

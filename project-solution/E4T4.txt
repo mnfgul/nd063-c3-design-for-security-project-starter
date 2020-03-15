@@ -1,0 +1,14 @@
+
+# What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+AWS WAF could be used to block various attacks such as XSS and SqlInjections.
+In addition to security groups, NACLs could be configured to block attackers. Security groups are stateful, however, NACLs are stateless configurations.
+Virtual private gateway could be configured to connect to private components of the system instead of connecting through public internet.
+
+# Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+If the IAM permissions are not secure, connecting through private endpoints would not gurantee the security of the bucket. IAM permissions are imperative for the security of AWS resources.
+
+# Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+Enabling encryption does not affect the existing objects. Therefore, it is crucial to plan the encryption strategy beforehand. 
+
+# What would happen if the original cloud formation templates are applied to this environment.
+If the original CloudFormation template is applied, it will overwrite the changes made through the console, CLI or API. This would cause conflicts and potential security breaches. In order to avoid this, cloudformation drift detection can be used to indentify and inconsistencies between deployment and cloudformation template.

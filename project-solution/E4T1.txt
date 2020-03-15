@@ -1,0 +1,16 @@
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+One of the options to prevent the ssh brute force attack is to only allow ssh access from specific IP address or a range of IP address.
+Admin can define a range of IP addresses from AWS console. Furthermore, not all instances should be allowed for ssh access.
+For current app setup all instances have ssh port open which a security vulnaribility.
+
+Another method would be to enable ssh access for only one instance and install a brute force blocker app.
+This instance can be configured as NAT instance and instances in private subnets can connect to the internet through NAT instance.
+
+The final method could be to diable ssh access from the internet and instead use AWS's VPN or DirectLink options
+to access the cloud. Although this could be a very expensive option, it would be one of the safest options.
+
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+Secret recipes bucket can be configured with appropriate BucketPolicy to allow access only from certain
+resources. For instance, it can be configured to disable access from the internet and from the subnets that 
+web server and attacker instance are deployed. This way we could secure this bucket from compromised acccess.
